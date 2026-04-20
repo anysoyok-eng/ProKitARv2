@@ -11,7 +11,7 @@ export const ZONES: { id: ShippingZoneId; label: string }[] = [
   { id: "caba", label: "CABA" },
   { id: "gba", label: "Buenos Aires" },
   { id: "interior", label: "Interior del país" },
-  { id: "test", label: "🧪 Prueba (gratis)" },
+
 ];
 
 export const INTERIOR_PROVINCES: ProvinceOption[] = [
@@ -81,9 +81,6 @@ export function getShippingPrices(
   zone: ShippingZoneId,
   provinceId?: string | null
 ): PricePair | null {
-  if (zone === "test") {
-    return { expreso: 1, clasico: 1 };
-  }
   if (zone === "caba" || zone === "gba") {
     return CABA_GBA_PRICES[deliveryType];
   }

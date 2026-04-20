@@ -1166,7 +1166,7 @@ export const BUENOS_AIRES_BRANCHES: string[] = [
  * - interior con provinceId -> sin listado curado (devuelve null para usar input libre)
  */
 export function getBranchesFor(
-  zone: "caba" | "gba" | "interior" | "test",
+  zone: "caba" | "gba" | "interior",
   _provinceId?: string | null
 ): string[] | null {
   if (zone === "caba") return CABA_BRANCHES;

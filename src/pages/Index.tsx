@@ -17,7 +17,7 @@ const products = [
   {
     name: "Argentina Titular",
     type: "CAMISETA TITULAR — INCLUYE PARCHE CAMPEÓN DEL MUNDO",
-    price: 1,
+    price: 65000,
     images: [argentinaHome, argentinaHomeDetail, argentinaHomeExtra, argentinaHomeBack],
     sizes: ["M", "L", "XL", "XXL"],
   },

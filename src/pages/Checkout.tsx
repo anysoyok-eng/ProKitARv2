@@ -294,7 +294,6 @@ const Checkout = () => {
     deliveryType &&
     (shippingZone === "caba" ||
       shippingZone === "gba" ||
-      shippingZone === "test" ||
       (shippingZone === "interior" && provinceId)) &&
     prices !== null;
 
