@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system migrado desde el proyecto original (HSL → oklch).
+ * Mantiene exactamente la misma paleta visual.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-sidebar: var(--sidebar-background);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Mismos colores HSL del proyecto original — Tailwind v4 acepta hsl() en tokens */
+  --background: hsl(0 0% 4%);
+  --foreground: hsl(0 0% 95%);
+
+  --card: hsl(0 0% 8%);
+  --card-foreground: hsl(0 0% 95%);
+
+  --popover: hsl(0 0% 8%);
+  --popover-foreground: hsl(0 0% 95%);
+
+  --primary: hsl(197 60% 65%);
+  --primary-foreground: hsl(0 0% 4%);
+
+  --secondary: hsl(0 0% 14%);
+  --secondary-foreground: hsl(0 0% 95%);
+
+  --muted: hsl(0 0% 14%);
+  --muted-foreground: hsl(0 0% 55%);
+
+  --accent: hsl(43 90% 55%);
+  --accent-foreground: hsl(0 0% 4%);
+
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(210 40% 98%);
+
+  --border: hsl(0 0% 16%);
+  --input: hsl(0 0% 16%);
+  --ring: hsl(197 60% 65%);
+
+  --sidebar-background: hsl(0 0% 6%);
+  --sidebar-foreground: hsl(0 0% 95%);
+  --sidebar-primary: hsl(197 60% 65%);
+  --sidebar-primary-foreground: hsl(0 0% 4%);
+  --sidebar-accent: hsl(0 0% 12%);
+  --sidebar-accent-foreground: hsl(0 0% 95%);
+  --sidebar-border: hsl(0 0% 16%);
+  --sidebar-ring: hsl(197 60% 65%);
+
+  --nav-divider: hsl(0 0% 12%);
+
+  --status-pending: hsl(43 90% 55%);
+  --status-paid: hsl(142 71% 45%);
+  --status-preparing: hsl(25 95% 53%);
+  --status-shipped: hsl(210 80% 55%);
+  --status-delivered: hsl(0 0% 55%);
+  --status-cancelled: hsl(0 84% 60%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, hsl(197, 60%, 65%), hsl(0, 0%, 100%));
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 40px -10px hsl(197 60% 65% / 0.4);
+  }
+
+  .card-hover {
+    transition: all 0.5s ease;
+  }
+
+  .card-hover:hover {
+    box-shadow: 0 0 40px -10px hsl(197 60% 65% / 0.4);
+    transform: translateY(-8px);
+  }
+
+  .safe-area-bottom {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}
